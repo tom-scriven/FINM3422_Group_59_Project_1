@@ -1,1 +1,0 @@
-This is just to test what happens in terms of pull requests when howersichard-tester adds a file
