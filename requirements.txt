@@ -6,3 +6,4 @@ requests
 yfinance
 ipywidgets
 fpdf
+lxml
