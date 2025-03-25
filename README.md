@@ -86,7 +86,3 @@ For development work:
 2. Implement functionality in separate .py files for modular code organization
 3. Create a directory structure that supports selection of different companies
 4. Test PDF generation with various inputs
-
-## License
-
-This project is available for educational purposes.
