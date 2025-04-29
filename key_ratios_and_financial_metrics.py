@@ -35,13 +35,10 @@ def extract_financial_data(ticker):
     operating_income = fs.loc["Operating Income"].iloc[0] if "Operating Income" in fs.index else None
     net_income = fs.loc["Net Income"].iloc[0] if "Net Income" in fs.index else None
     ebit = fs.loc["Ebit"].iloc[0] if "Ebit" in fs.index else None
-    cogs = fs.loc["Cost Of Revenue"].iloc[0] if "Cost Of Revenue" in fs.index else (
-        fs.loc["Cost of Goods Sold"].iloc[0] if "Cost of Goods Sold" in fs.index else None
     )
     # Extract key balance sheet items
     total_assets = bs.loc["Total Assets"].iloc[0] if "Total Assets" in bs.index else None
     current_liabilities = bs.loc["Total Current Liabilities"].iloc[0] if "Total Current Liabilities" in bs.index else None
-    inventory = bs.loc["Inventory"].iloc[0] if "Inventory" in bs.index else 0
     cash = bs.loc["Cash"].iloc[0] if "Cash" in bs.index else 0
 
     # Calculate total debt from long- and short-term debt
@@ -73,7 +70,7 @@ def extract_financial_data(ticker):
         "total_assets": total_assets, "current_liabilities": current_liabilities,
         "inventory": inventory, "cash": cash, "total_debt": total_debt, "capital_employed": capital_employed,
         "enterprise_value": ev, "revenue_per_share": revenue_per_share, "cash_flow": cash_flow,
-        "cash_flow_per_share": cash_flow_per_share, "inventory": inventory, "cogs": cogs,
+        "cash_flow_per_share": cash_flow_per_share, 
     }
 
 # -----------------------------------------------
@@ -112,14 +109,11 @@ def roa(net_income, total_assets):
     return safe_divide(net_income, total_assets)
 
 # -----------------------------------------------
-# EFFICIENCY RATIOS
+# EFFICIENCY RATIO
 # -----------------------------------------------
 
 def asset_turnover(revenue, total_assets):
     return safe_divide(revenue, total_assets)
-
-def inventory_turnover(cogs, inventory):
-    return safe_divide(cogs, inventory)
 
 # -----------------------------------------------
 # MARKET METRICS
