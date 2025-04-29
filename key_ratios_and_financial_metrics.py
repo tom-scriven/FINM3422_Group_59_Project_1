@@ -73,7 +73,8 @@ def extract_financial_data(ticker):
         "total_assets": total_assets, "current_liabilities": current_liabilities,
         "inventory": inventory, "cash": cash, "total_debt": total_debt, "capital_employed": capital_employed,
         "enterprise_value": ev, "revenue_per_share": revenue_per_share, "cash_flow": cash_flow,
-        "cash_flow_per_share": cash_flow_per_share, "inventory": inventory, "cogs": cogs,
+        "cash_flow_per_share": cash_flow_per_share, "inventory": inventory,
+
     }
 
 # -----------------------------------------------
