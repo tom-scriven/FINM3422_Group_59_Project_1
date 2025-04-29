@@ -1,9 +1,0 @@
-matplotlib
-matplotlib-inline
-numpy
-pandas
-requests
-yfinance
-ipywidgets
-fpdf
-lxml
