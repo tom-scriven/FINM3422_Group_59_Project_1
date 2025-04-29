@@ -35,6 +35,8 @@ def extract_financial_data(ticker):
     operating_income = fs.loc["Operating Income"].iloc[0] if "Operating Income" in fs.index else None
     net_income = fs.loc["Net Income"].iloc[0] if "Net Income" in fs.index else None
     ebit = fs.loc["Ebit"].iloc[0] if "Ebit" in fs.index else None
+    cogs = fs.loc["Cost Of Revenue"].iloc[0] if "Cost Of Revenue" in fs.index else (
+        fs.loc["Cost of Goods Sold"].iloc[0] if "Cost of Goods Sold" in fs.index else None
 
     # Extract key balance sheet items
     total_assets = bs.loc["Total Assets"].iloc[0] if "Total Assets" in bs.index else None
@@ -60,9 +62,8 @@ def extract_financial_data(ticker):
         if key in cf.index:
             cash_flow = cf.loc[key].iloc[0]
             break
-
+            
     cash_flow_per_share = cash_flow / shares if cash_flow and shares else None
-    avg_inventory = inventory  # Basic fallback for average inventory
 
     # Return all relevant extracted and derived data
     return {
@@ -117,8 +118,8 @@ def roa(net_income, total_assets):
 def asset_turnover(revenue, total_assets):
     return safe_divide(revenue, total_assets)
 
-def inventory_turnover(cogs, avg_inventory):
-    return safe_divide(cogs, avg_inventory)
+def inventory_turnover(cogs, inventory):
+    return safe_divide(cogs, inventory)
 
 # -----------------------------------------------
 # MARKET METRICS
