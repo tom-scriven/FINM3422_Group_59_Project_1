@@ -37,7 +37,7 @@ def extract_financial_data(ticker):
     ebit = fs.loc["Ebit"].iloc[0] if "Ebit" in fs.index else None
     cogs = fs.loc["Cost Of Revenue"].iloc[0] if "Cost Of Revenue" in fs.index else (
         fs.loc["Cost of Goods Sold"].iloc[0] if "Cost of Goods Sold" in fs.index else None
-
+    )
     # Extract key balance sheet items
     total_assets = bs.loc["Total Assets"].iloc[0] if "Total Assets" in bs.index else None
     current_liabilities = bs.loc["Total Current Liabilities"].iloc[0] if "Total Current Liabilities" in bs.index else None
@@ -133,4 +133,3 @@ def earnings_yield(eps, price):
 
 def price_to_cash_flow(price, cash_flow_per_share):
     return safe_divide(price, cash_flow_per_share)
-
