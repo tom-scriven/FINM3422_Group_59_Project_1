@@ -36,7 +36,7 @@ def extract_financial_data(ticker):
     net_income = fs.loc["Net Income"].iloc[0] if "Net Income" in fs.index else None
     ebit = fs.loc["Ebit"].iloc[0] if "Ebit" in fs.index else None
     cogs = fs.loc["Cost Of Revenue"].iloc[0] if "Cost Of Revenue" in fs.index else (
-        fs.loc["Cost of Goods Sold"].iloc[0] if "Cost of Goods Sold" in fs.index else None
+        fs.loc["Cost of Goods Sold"].iloc[0] if "Cost of Goods Sold" in fs.index else None)
 
     # Extract key balance sheet items
     total_assets = bs.loc["Total Assets"].iloc[0] if "Total Assets" in bs.index else None
